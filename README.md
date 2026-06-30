@@ -29,7 +29,7 @@ SALT_ROUND=
 Luego, genera el cliente de Prisma e inicia:
 ```bash
 pnpm prisma generate
-pnpm prisma migrate dev --name init
+pnpm run build
 pnpm run dev
 ```
 ### 3. Configurar el Frontend

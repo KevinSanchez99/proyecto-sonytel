@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Cliente {
+  id              Int       @id @default(autoincrement())
+  dni_cuit        String?   @db.VarChar(255)
+  direccion       String?   @db.VarChar(255)
+  nombre_completo String?   @db.VarChar(255)
+  telefono        String?   @db.VarChar(255)
+  fecha_creacion  DateTime? @default(now()) @db.Timestamp(6)
+  
+  equipos         Equipo[]
+
+  @@map("cliente")
+}
+
+model Equipo {
+  id              Int       @id @default(autoincrement())
+  diagnostico     String?   @db.VarChar(255)
+  fecha_ingreso   DateTime? @default(now()) @db.Timestamp(6)
+  marca           String?   @db.VarChar(255)
+  modelo          String?   @db.VarChar(255)
+  nro_serie       String?   @db.VarChar(255)
+  costo           Decimal?  @db.Decimal(10, 2)
+  reparacion      String?   @db.Text
+  nro_condensador String?   @db.VarChar(255)
+  nro_evaporador  String?   @db.VarChar(255)
+  meses_garantia  Int?      
+  
+  estado          String?   @default("PENDIENTE") @db.VarChar(50)
+
+  cliente_id      Int?
+  cliente         Cliente?  @relation(fields: [cliente_id], references: [id], onDelete: Restrict)
+  fotos           Fotos[]
+
+  @@map("equipo")
+}
+
+model Fotos {
+  id            Int      @id @default(autoincrement())
+  content_type  String?  @db.VarChar(255)
+  original_name String?  @db.VarChar(255)
+  path          String?  @db.VarChar(500)
+
+  equipo_id     Int?
+  equipo        Equipo?  @relation(fields: [equipo_id], references: [id], onDelete: Cascade)
+
+  @@map("fotos")
+}
+
+model Usuario {
+  id           Int     @id @default(autoincrement())
+  username     String  @unique @db.VarChar(255)
+  password     String  @db.VarChar(255)
+  refreshToken String? @db.Text
+
+  @@map("usuario")
+}

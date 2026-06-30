@@ -113,7 +113,7 @@ export const EquipoModal = ({ isOpen, onClose, equipoEditar }) => {
             }}
         >
             <div className="bg-white dark:bg-gray-900 w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl p-4 md:p-6 shadow-xl border border-transparent dark:border-gray-800 transition-colors duration-200">
-                <div className="flex justify-between items-center p-4 border-b border-gray-100 dark:border-gray-800 sticky top-0 bg-white dark:bg-gray-900 rounded-t-2xl z-10 transition-colors">
+                <div className="flex justify-between items-center p-4 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 rounded-t-2xl z-10 transition-colors">
                     <h3 className="text-lg font-bold text-gray-800 dark:text-white">{equipoEditar ? "Editar Equipo" : "Nuevo Equipo"}</h3>
                     <button onClick={onClose} type="button" className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"><X className="w-5 h-5" /></button>
                 </div>

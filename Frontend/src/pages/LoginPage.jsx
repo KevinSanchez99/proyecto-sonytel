@@ -26,7 +26,7 @@ export const LoginPage = () => {
                 
                 <div className="flex justify-center mb-6">
                     <div className="bg-white p-3 rounded-2xl shadow-lg">
-                        <Wrench className="w-10 h-10 text-blue-600" />
+                        <img src="/LogoSonytel.png" alt="Logo Sonytel" className="w-16 h-16"/>
                     </div>
                 </div>
                 

@@ -23,6 +23,8 @@ pnpm install
 Crea un archivo .env en la carpeta Backend con:
 ```bash
 DATABASE_URL="postgresql://usuario:contraseña@localhost:5432/sonytel_db"
+SECRET_JWT_KEY=
+SALT_ROUND=
 ```
 Luego, genera el cliente de Prisma e inicia:
 ```bash

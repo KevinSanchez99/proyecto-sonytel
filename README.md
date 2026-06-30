@@ -12,7 +12,7 @@ Sistema de gestión para taller de reparaciones.
 
 ### 1. Clonar el repositorio
 ```bash
-git clone <URL_DE_TU_REPOSITORIO>
+git clone https://github.com/KevinSanchez99/proyecto-sonytel
 cd Proyecto-Sonytel
 ```
 ### 2. Configurar el Backend

@@ -6,9 +6,17 @@ const calcularMesesRestantes = (fechaIngreso, mesesGarantia) => {
     if (!mesesGarantia || mesesGarantia <= 0) return 0;
     const expiracion = new Date(fechaIngreso);
     expiracion.setMonth(expiracion.getMonth() + mesesGarantia);
+
     const ahora = new Date();
     if (ahora >= expiracion) return 0;
-    return Math.ceil((expiracion - ahora) / (1000 * 60 * 60 * 24 * 30.44));
+
+    let meses = 0;
+    let cursor = new Date(ahora);
+    while (cursor < expiracion) {
+        cursor.setMonth(cursor.getMonth() + 1);
+        meses++;
+    }
+    return meses;
 };
 
 export const obtenerTodos = async () => {
